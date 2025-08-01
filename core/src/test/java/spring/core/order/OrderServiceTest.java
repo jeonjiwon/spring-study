@@ -1,6 +1,7 @@
 package spring.core.order;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import spring.core.AppConfig;
 import spring.core.discount.FixDiscountPolicy;
@@ -30,4 +31,15 @@ class OrderServiceTest {
     Order order = orderService.createOrder(memberId, "itemA", 10000);
     Assertions.assertThat(order.getDiscountPrice()).isEqualTo(1000);
   }
+
+  @Test
+  @DisplayName("autowird - 필드주입 문제점 ")
+  void fieldInjectionTest() {
+//    OrderServiceImpl orderService = new OrderServiceImpl();
+////    orderService.setMemberRepository(new MemoryMemberRepository());
+////    orderService.setDiscountPolicy(new FixDiscountPolicy());
+//    orderService.createOrder(1L, "itemA", 10000); //java.lang.NullPointerException 발생
+  }
+
+
 }
